@@ -3,7 +3,6 @@ package tmx
 import (
 	"encoding/xml"
 	"io/ioutil"
-	"os"
 	"path"
 )
 
@@ -139,7 +138,7 @@ func (t *Tileset) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	*t = (Tileset)(ts)
 	if t.Source != "" {
 		t2 := Tileset{}
-		f, err := os.Open(path.Join(path.Dir(TMXURL), t.Source))
+		f, err := FileSystem.Open(path.Join(path.Dir(TMXURL), t.Source))
 		defer f.Close()
 		if err != nil {
 			return err

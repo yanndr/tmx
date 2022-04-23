@@ -1,1 +1,1 @@
-module github.com/Noofbiz/tmx
+module github.com/yanndr/tmx
