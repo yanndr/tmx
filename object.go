@@ -44,6 +44,8 @@ type Object struct {
 	Name string `xml:"name,attr"`
 	// Type is the type of the object
 	Type string `xml:"type,attr"`
+	// Class is the class of the object
+	Class string `xml:"class,attr"`
 	// X is the x coordinate of the object in pixels
 	X float64 `xml:"x,attr"`
 	// Y is the y coordinate of the object in pixels
@@ -238,6 +240,9 @@ func (o *Object) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		}
 		if o.Type == "" {
 			o.Type = tmpl.Objects[0].Type
+		}
+		if o.Class == "" {
+			o.Class = tmpl.Objects[0].Class
 		}
 		if o.Visible == 1 {
 			o.Visible = tmpl.Objects[0].Visible
